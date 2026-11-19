@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <!-- Metadados: codificação, ajuste para celular e título da aba (Apostila 02, seção 3) -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Biblioteca do Bairro: consulte o acervo e reserve livros.">
+    <title>Início | Biblioteca do Bairro</title>
+</head>
+<body id="topo">
+    <!-- Cabeçalho do site: identidade + navegação principal -->
+    <header>
+        <h1>Biblioteca do Bairro</h1>
+        <p>Leitura perto de casa, gratuita e para todas as idades.</p>
+
+        <nav aria-label="Navegação principal">
+            <ul>
+                <!-- Links RELATIVOS: funcionam em qualquer pasta onde o projeto estiver -->
+                <li><a href="index.html" aria-current="page">Início</a></li>
+                <li><a href="acervo.html">Acervo</a></li>
+                <li><a href="reservar.html">Reservar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Um único <main> por página, com o conteúdo principal -->
+    <main>
+        <section id="apresentacao">
+            <h2>Quem somos</h2>
+            <p>
+                A <strong>Biblioteca do Bairro</strong> é mantida pela associação de moradores e
+                pelas doações da comunidade. Você pode consultar o acervo pela internet,
+                <em>reservar</em> um livro e retirá-lo no balcão.
+            </p>
+
+            <!-- <figure> agrupa a imagem e sua legenda; alt descreve a imagem para quem não a vê -->
+            <figure>
+                <img src="img/estante.svg" alt="Ilustração de uma estante com livros coloridos"
+                     width="480" height="320">
+                <figcaption>Nosso acervo cresce com doações da comunidade.</figcaption>
+            </figure>
+        </section>
+
+        <section id="numeros">
+            <h2>O acervo em números</h2>
+            <!-- Lista de descrição: termo (dt) e descrição (dd) -->
+            <dl>
+                <dt>Títulos</dt>
+                <dd>11</dd>
+                <dt>Exemplares</dt>
+                <dd>22</dd>
+            </dl>
+        </section>
+
+        <section id="como-funciona">
+            <h2>Como funciona a reserva</h2>
+            <!-- Lista ORDENADA: a sequência dos passos importa -->
+            <ol>
+                <li>Encontre o livro no <a href="acervo.html">acervo</a>.</li>
+                <li>Preencha o <a href="reservar.html">formulário de reserva</a>.</li>
+                <li>Retire o livro no balcão em até 15 dias.</li>
+            </ol>
+        </section>
+
+        <section id="horarios">
+            <h2>Horário de atendimento</h2>
+            <!-- Lista NÃO ordenada: itens sem sequência obrigatória -->
+            <ul>
+                <li>Manhã: 9h às 12h</li>
+                <li>Tarde: 13h às 17h</li>
+                <li>Noite: 18h às 21h</li>
+            </ul>
+            <p>De segunda a sábado, exceto feriados.</p>
+        </section>
+
+        <article id="novidade">
+            <h2>Novidade: clube de leitura</h2>
+            <p>
+                A partir de <time datetime="2026-03-07">7 de março</time>, todo primeiro sábado
+                do mês teremos um encontro para conversar sobre um livro do acervo.
+            </p>
+            <!-- Citação em bloco; o autor fica no <footer> da própria citação -->
+            <blockquote>
+                <p>Um país se faz com homens e livros.</p>
+                <footer>— Monteiro Lobato</footer>
+            </blockquote>
+        </article>
+    </main>
+
+    <footer>
+        <!-- <address> marca informações de contato -->
+        <address>
+            Rua das Letras, 100 — Centro<br>
+            <a href="mailto:contato@bibliotecadobairro.exemplo">contato@bibliotecadobairro.exemplo</a>
+        </address>
+        <p><small>Projeto de exemplo — Desenvolvimento Web em HTML5, CSS, JavaScript e PHP</small></p>
+        <p><a href="#topo">Voltar ao topo</a></p>
+    </footer>
+</body>
+</html>

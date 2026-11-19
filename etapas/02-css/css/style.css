@@ -1,0 +1,264 @@
+/* =====================================================================
+   Etapa 02 — CSS (Apostila 03)
+
+   O HTML desta etapa é IGUAL ao da etapa 01: só acrescentamos o <link>.
+   Repare que quase tudo é estilizado com seletores de ELEMENTO, de
+   DESCENDENTE e de ATRIBUTO — um HTML semântico já dá muitos "ganchos".
+   ===================================================================== */
+
+/* ---- Variáveis (seção 17) ------------------------------------------- */
+:root {
+    --cor-primaria: #7a2e1d;
+    --cor-destaque: #2f6f5e;
+    --cor-fundo: #faf7f2;
+    --cor-texto: #2b2622;
+    --cor-borda: #e2d9cc;
+    --raio: 0.6rem;
+}
+
+/* ---- Base (seções 7 e 8) ---------------------------------------------- */
+* {
+    box-sizing: border-box; /* width passa a incluir padding e borda */
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background: var(--cor-fundo);
+}
+
+h1, h2 {
+    font-family: Georgia, serif;
+    color: var(--cor-primaria);
+}
+
+img {
+    max-width: 100%; /* imagem flexível (seção 15.2) */
+    height: auto;
+}
+
+a {
+    color: var(--cor-destaque);
+}
+
+/* Foco sempre visível para quem navega com Tab */
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+    outline: 3px solid #e0a526;
+    outline-offset: 2px;
+}
+
+/* ---- Cabeçalho e navegação — Flexbox (seção 12) ------------------------ */
+body > header {
+    background: var(--cor-primaria);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+body > header h1 {
+    color: white;
+    margin: 0;
+}
+
+/* Seletor de descendente: só as listas DENTRO do nav */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+    display: flex;           /* itens lado a lado */
+    flex-wrap: wrap;         /* quebram linha se faltar espaço */
+    justify-content: center; /* centralizados no eixo principal */
+    gap: 0.5rem;             /* espaço entre itens, sem margens individuais */
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--raio);
+}
+
+/* Pseudoclasse :hover (seção 4.6) */
+nav a:hover {
+    background: rgb(255 255 255 / 0.15);
+}
+
+/* Seletor de atributo: a página atual */
+nav a[aria-current="page"] {
+    background: rgb(255 255 255 / 0.25);
+}
+
+/* ---- Conteúdo: cartões com box model (seções 8 e 10) ------------------- */
+main {
+    width: min(92%, 60rem); /* nunca mais largo que 60rem */
+    margin: 2rem auto;      /* auto nas laterais centraliza */
+}
+
+main section,
+main article {
+    background: white;
+    padding: 1.5rem;                      /* espaço INTERNO */
+    margin-bottom: 1.5rem;                /* espaço EXTERNO */
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.06);
+}
+
+main h2 {
+    margin-top: 0;
+}
+
+figure {
+    margin: 1rem 0 0;
+    text-align: center;
+}
+
+figcaption {
+    font-size: 0.875rem;
+    color: #6b625a;
+}
+
+/* Lista de descrição em grade de 2 colunas (Grid — seção 13) */
+dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.25rem 1rem;
+}
+
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin: 0;
+}
+
+blockquote {
+    margin: 1rem 0 0;
+    padding: 0.5rem 1rem;
+    border-left: 4px solid var(--cor-destaque);
+    font-style: italic;
+}
+
+/* ---- Tabela ------------------------------------------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+caption {
+    text-align: left;
+    font-weight: 700;
+    padding: 0.5rem 0;
+}
+
+th,
+td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--cor-borda);
+    text-align: left;
+}
+
+thead th {
+    background: var(--cor-primaria);
+    color: white;
+}
+
+/* Pseudoclasse estrutural: linhas pares */
+tbody tr:nth-child(even) {
+    background: #f6f0e8;
+}
+
+/* ---- Formulário ---------------------------------------------------------- */
+form {
+    display: grid;
+    gap: 1rem;
+    max-width: 40rem;
+}
+
+fieldset {
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    background: white;
+    padding: 1rem 1.25rem;
+}
+
+legend {
+    font-weight: 700;
+}
+
+/* fieldset dentro de fieldset: sem moldura */
+fieldset fieldset {
+    border: 0;
+    padding: 0;
+}
+
+label {
+    font-weight: 600;
+    margin-right: 1rem;
+}
+
+/* Seletor de FILHO DIRETO (>): só o label que está diretamente dentro de um <p>
+   vira bloco (fica em cima do campo). Os labels de radio/checkbox continuam em linha. */
+p > label {
+    display: block;
+}
+
+input:not([type="radio"], [type="checkbox"]),
+select,
+textarea {
+    width: 100%;
+    padding: 0.6rem;
+    font: inherit;
+    border: 1px solid #aebbc3;
+    border-radius: 0.4rem;
+}
+
+button {
+    font: inherit;
+    font-weight: 700;
+    color: white;
+    background: var(--cor-destaque);
+    border: 0;
+    border-radius: var(--raio);
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+/* ---- Rodapé ------------------------------------------------------------- */
+body > footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #6b625a;
+    border-top: 1px solid var(--cor-borda);
+}
+
+address {
+    font-style: normal;
+}
+
+/* ---- Responsividade (seção 15) ------------------------------------------ */
+/* Em telas pequenas, o menu fica em coluna e a tabela pode rolar */
+@media (max-width: 40rem) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}

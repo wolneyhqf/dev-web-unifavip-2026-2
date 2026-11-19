@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Acervo | Biblioteca do Bairro</title>
+    <!-- CSS externo: um único arquivo estiliza todas as páginas (Apostila 03, seção 2.3) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="topo">
+    <header>
+        <h1>Biblioteca do Bairro</h1>
+        <nav aria-label="Navegação principal">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="acervo.html" aria-current="page">Acervo</a></li>
+                <li><a href="reservar.html">Reservar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Acervo</h2>
+        <p>Nesta etapa a lista é escrita à mão no HTML. Na etapa 05 ela virá do PHP.</p>
+
+        <!-- Tabela: só para dados TABULARES, nunca para montar layout (Apostila 02, seção 9) -->
+        <table id="tabela-acervo">
+            <!-- caption: título da tabela, lido por leitores de tela -->
+            <caption>Livros do acervo e exemplares disponíveis</caption>
+            <thead>
+                <tr>
+                    <!-- scope="col": este cabeçalho vale para a COLUNA -->
+                    <th scope="col">Título</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Gênero</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Disponíveis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- data-*: dados extras para o JavaScript usar nas próximas etapas -->
+                <tr data-exemplares="3" data-ocupados="2">
+                    <!-- scope="row": o título é o cabeçalho da LINHA -->
+                    <th scope="row">Dom Casmurro</th>
+                    <td>Machado de Assis</td>
+                    <td>Romance</td>
+                    <td>1899</td>
+                    <td>1 de 3</td>
+                </tr>
+                <tr data-exemplares="2" data-ocupados="0">
+                    <th scope="row">O Alienista</th>
+                    <td>Machado de Assis</td>
+                    <td>Ficção</td>
+                    <td>1882</td>
+                    <td>2 de 2</td>
+                </tr>
+                <tr data-exemplares="2" data-ocupados="0">
+                    <th scope="row">Triste Fim de Policarpo Quaresma</th>
+                    <td>Lima Barreto</td>
+                    <td>Romance</td>
+                    <td>1915</td>
+                    <td>2 de 2</td>
+                </tr>
+                <tr data-exemplares="2" data-ocupados="0">
+                    <th scope="row">Alice no País das Maravilhas</th>
+                    <td>Lewis Carroll</td>
+                    <td>Fantasia</td>
+                    <td>1865</td>
+                    <td>2 de 2</td>
+                </tr>
+                <tr data-exemplares="2" data-ocupados="2">
+                    <th scope="row">O Pequeno Príncipe</th>
+                    <td>Antoine de Saint-Exupéry</td>
+                    <td>Infantil</td>
+                    <td>1943</td>
+                    <td><strong>Esgotado</strong></td>
+                </tr>
+                <tr data-exemplares="1" data-ocupados="0">
+                    <th scope="row">Código Limpo</th>
+                    <td>Robert C. Martin</td>
+                    <td>Tecnologia</td>
+                    <td>2008</td>
+                    <td>1 de 1</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><a href="reservar.html">Quero reservar um livro</a></p>
+    </main>
+
+    <footer>
+        <p><small>Projeto de exemplo — Desenvolvimento Web em HTML5, CSS, JavaScript e PHP</small></p>
+        <p><a href="#topo">Voltar ao topo</a></p>
+    </footer>
+</body>
+</html>

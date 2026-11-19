@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reservar | Biblioteca do Bairro</title>
+    <!-- CSS externo: um único arquivo estiliza todas as páginas (Apostila 03, seção 2.3) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="topo">
+    <header>
+        <h1>Biblioteca do Bairro</h1>
+        <nav aria-label="Navegação principal">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="acervo.html">Acervo</a></li>
+                <li><a href="reservar.html" aria-current="page">Reservar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Reservar livro</h2>
+
+        <!--
+            action="#": nesta etapa ainda não existe servidor para receber os dados.
+            Na etapa 05, action apontará para um arquivo PHP.
+            method="post": os dados vão no corpo da requisição, não na URL.
+        -->
+        <form id="form-reserva" action="#" method="post">
+
+            <!-- fieldset + legend agrupam campos relacionados -->
+            <fieldset>
+                <legend>Seus dados</legend>
+
+                <p>
+                    <!-- for do label = id do campo: clicar no texto foca o campo -->
+                    <label for="nome">Nome completo</label>
+                    <!-- name: é o que será enviado ao servidor (o id não é enviado) -->
+                    <input id="nome" name="nome" type="text" required minlength="2" maxlength="120"
+                           autocomplete="name">
+                </p>
+
+                <p>
+                    <label for="email">E-mail</label>
+                    <!-- type="email": o navegador confere o formato e mostra teclado com @ no celular -->
+                    <input id="email" name="email" type="email" required autocomplete="email">
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Reserva</legend>
+
+                <p>
+                    <label for="livro_id">Livro</label>
+                    <select id="livro_id" name="livro_id" required>
+                        <option value="">Selecione um livro</option>
+                        <option value="1">Dom Casmurro</option>
+                        <option value="3">O Alienista</option>
+                        <option value="4">Triste Fim de Policarpo Quaresma</option>
+                        <option value="7">Alice no País das Maravilhas</option>
+                        <!-- disabled: aparece, mas não pode ser escolhido -->
+                        <option value="9" disabled>O Pequeno Príncipe (esgotado)</option>
+                        <option value="11">Código Limpo</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="data_retirada">Data de retirada</label>
+                    <input id="data_retirada" name="data_retirada" type="date" required>
+                </p>
+
+                <!-- Radio: mesmo name = só uma opção pode ser marcada -->
+                <fieldset>
+                    <legend>Período de retirada</legend>
+                    <label><input type="radio" name="periodo" value="manha" required> Manhã</label>
+                    <label><input type="radio" name="periodo" value="tarde"> Tarde</label>
+                    <label><input type="radio" name="periodo" value="noite"> Noite</label>
+                </fieldset>
+            </fieldset>
+
+            <fieldset>
+                <legend>Preferências (opcional)</legend>
+
+                <!-- Checkbox: várias opções podem ser marcadas.
+                     O [] no name fará o PHP receber um array (etapa 05). -->
+                <fieldset>
+                    <legend>Quero receber novidades sobre</legend>
+                    <label><input type="checkbox" name="generos[]" value="romance"> Romance</label>
+                    <label><input type="checkbox" name="generos[]" value="ficcao"> Ficção</label>
+                    <label><input type="checkbox" name="generos[]" value="fantasia"> Fantasia</label>
+                    <label><input type="checkbox" name="generos[]" value="infantil"> Infantil</label>
+                </fieldset>
+
+                <p>
+                    <label for="observacoes">Observações</label>
+                    <textarea id="observacoes" name="observacoes" rows="4" maxlength="300"></textarea>
+                </p>
+            </fieldset>
+
+            <!-- type="submit" envia o formulário -->
+            <button type="submit">Confirmar reserva</button>
+        </form>
+
+        <!-- Atenção: required, minlength e type="email" ajudam quem preenche, mas
+             NÃO garantem segurança. O servidor sempre precisa validar de novo. -->
+    </main>
+
+    <footer>
+        <p><small>Projeto de exemplo — Desenvolvimento Web em HTML5, CSS, JavaScript e PHP</small></p>
+        <p><a href="#topo">Voltar ao topo</a></p>
+    </footer>
+</body>
+</html>
