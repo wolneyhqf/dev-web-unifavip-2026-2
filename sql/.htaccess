@@ -1,0 +1,3 @@
+# Apache (XAMPP/WAMP): bloqueia o acesso a esta pasta pelo navegador.
+# Só o PHP, pelo sistema de arquivos, deve ler estes arquivos.
+Require all denied
