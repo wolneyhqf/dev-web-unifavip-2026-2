@@ -1,0 +1,13 @@
+# Banco SQLite gerado automaticamente na primeira execução
+dados/*.sqlite
+dados/*.sqlite-*
+
+# Material do professor (não vai para o repositório dos alunos)
+PLANEJAMENTO.md
+apostilas/
+
+# Sistema operacional / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
